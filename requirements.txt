@@ -1,0 +1,14 @@
+jinja2
+coveralls
+flask
+flake8
+flake8-docstrings
+gunicorn
+mypy
+pylint
+pytest
+pytest-cov
+requests
+responses
+webargs
+marshmallow

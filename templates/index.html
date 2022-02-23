@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Marble Game">
+  <meta name="author" content="Jack Nelson">
+  <title>Marble Game</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+
+<body>
+  <main role="main">
+      <div class="container">
+        <h1>Welcome to the Marble Game</h1>
+          <form
+            method="post"
+            action="{{ url_for('game.start') }}"
+            id="output-form">
+              <label for="marbles">Choose marbles per player:</label>
+              <select name="marbles" id="marbles">
+                  <option value=10>10</option>
+                  <option value=15>15</option>
+                  <option value=20>20</option>
+              </select>
+          </form>
+          <button type="submit" class="btn btn-primary  mr-2" form="output-form">Play</button>
+    </div>
+</main>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src={{ url_for('static', filename='js/bootstrap.min.js') }}></script>
+</body>
+</html>

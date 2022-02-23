@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+
+  service:
+    build: .
+    environment:
+      APPLICATION_STAGE: dev
+    volumes:
+      - ./:/app
+    ports:
+      - 5000:5000
+

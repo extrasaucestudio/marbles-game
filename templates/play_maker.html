@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Marble Game">
+  <meta name="author" content="Jack Nelson">
+  <title>Marble Game</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+
+<body>
+  <main role="main">
+      <div class="container">
+      {% if winner %}
+          <h2>Game Over</h2>
+          <p>{{ winner }} has won.</p>
+            <form method="get" id="put_on_review_form" action="{{ url_for('game.index') }}">
+                <button type="submit" class="btn btn-primary  mr-2">Play Again</button>
+            </form>
+      {% else %}
+        <h1>You are the BET MAKER</h1>
+          {% if round_winner %}
+            <p>{{ round_winner }} won the last round. Please continue.</p>
+          {% endif %}
+          <p>You have {{ player }} marbles.</p>
+          <p>Guess whether the Bot has an ODD or EVEN stake:</p>
+          <form
+            method="post"
+            action="{{ url_for('game.play') }}"
+            id="play-form">
+                <input type="hidden" name="player" id="player" value="{{ player }}">
+                <input type="hidden" name="bot" id="bot" value="{{ bot }}">
+                  <select name="guess" id="guess">
+                      <option value="odd">Odd</option>
+                      <option value="even">Even</option>
+                  </select>
+          </form>
+          <br>
+          <button type="submit" class="btn btn-primary  mr-2" form="play-form">Bet</button>
+        {% endif %}
+    </div>
+  </main>
+
+<script src={{ url_for('static', filename='js/bootstrap.min.js') }}></script>
+</body>
+</html>
